@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import {Button, Col, Row, Statistic} from "antd";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -14,10 +15,21 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
-                <div>
-                    <h1>Test</h1>
-                </div>
+                <Row gutter={16}>
+                    <Col span={12}>
+                        <Statistic title="Active Users" value={112893}/>
+                    </Col>
+                    <Col span={12}>
+                        <Statistic title="Account Balance (CNY)" value={112893} precision={2}/>
+                        <Button style={{marginTop: 16}} type="primary">
+                            Recharge
+                        </Button>
+                    </Col>
+                    <Col span={12}>
+                        <Statistic title="Active Users" value={112893} loading/>
+                    </Col>
+                </Row>
             </main>
         </>
-    )
+    );
 }
